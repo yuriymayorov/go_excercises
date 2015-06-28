@@ -17,3 +17,20 @@ func TestIsUniqueChars(t *testing.T) {
 		}
 	}
 }
+
+func TestReverse(t *testing.T) {
+	cases := []struct {
+		in string
+		want string
+	}{
+		{"holla", "alloh"},
+		{"pass", "ssap"},
+		{"", ""},
+	}	
+	for _, c := range cases {
+		got := Reverse(c.in)
+		if got != c.want {
+			t.Errorf("Reverse(%s) == %s, want %s", c.in, got, c.want)
+		}
+	}
+}

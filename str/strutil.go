@@ -1,6 +1,9 @@
 // Package contains string utilities
 package strutil
 
+// #include "strutil.h"
+import "C"
+
 // Func check if char occurs once in string
 // Estimate time: O(n) Estimate required memory: O(1)
 func IsUniqueChars(str string) bool {
@@ -13,10 +16,18 @@ func IsUniqueChars(str string) bool {
 		var val int
 		val = int(str[i])
 		if charSet[val] {
-			return false;
+			return false
 		}
 		charSet[val] = true
 	}
 
 	return true
+}
+
+// Func that reverse string, which ending null
+func Reverse(str string) string {
+	ch := C.CString(str)
+	C.reverse(ch);
+	res := C.GoString(ch);
+	return res
 }
