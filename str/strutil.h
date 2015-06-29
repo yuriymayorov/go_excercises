@@ -1,3 +1,5 @@
+// Func that reverse string presented as char*
+// Estimate time: O(n) Estimate required memory: O(1)
 void reverse(char* str){
     char* end = str;
     char tmp;

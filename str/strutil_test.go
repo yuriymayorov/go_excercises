@@ -34,3 +34,21 @@ func TestReverse(t *testing.T) {
 		}
 	}
 }
+
+func TestIsPermutation(t *testing.T) {
+	cases := []struct {
+		in1 string
+		in2 string
+		want bool
+	}{
+		{"holla", "alloh", true},
+		{"red", "ret", false},
+		{"game", "emag", true},
+	}	
+	for _, c := range cases {
+		got := IsPermutation(c.in1, c.in2)
+		if got != c.want {
+			t.Errorf("IsPermutation(%s, %s) == %s, want %s", c.in1, c.in2, got, c.want)
+		}
+	}
+}
