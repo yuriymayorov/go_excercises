@@ -52,3 +52,21 @@ func TestIsPermutation(t *testing.T) {
 		}
 	}
 }
+
+func TestCompress(t *testing.T) {
+	cases := []struct {
+		in1 string
+		want string
+	}{
+		{"aaaab", "a4b1"},
+		{"aa", "aa"},
+		{"aab", "aab"},
+		{"footballllllllllll", "f1o2t1b1a1l12"},
+	}	
+	for _, c := range cases {
+		got := Compress(c.in1)
+		if got != c.want {
+			t.Errorf("Compress(%s) == %s, want %s", c.in1, got, c.want)
+		}
+	}
+}
