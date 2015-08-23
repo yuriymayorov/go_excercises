@@ -8,3 +8,5 @@ Project contains code examples of some popular algorithms written on Go Lang.
 5. Implement an alhorithm that rotate matrix N*N
 6. Write a function that set all M-col and all N-row values to 0, if value in point M*N is 0 
 7. Imlement an algorithm that check if s2 is cyclic shift of s1
+##[Linked lists](https://github.com/yuriymayorov/go_excercises/wiki/Linked-lists)
+1. Implement algorithm which deletes all duplicates from linked list
