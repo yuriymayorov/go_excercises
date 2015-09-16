@@ -157,11 +157,20 @@ func SetZeros(matrix [][]int) [][]int {
 // Func check if s2 is cyclic shift of s1
 func IsRotation(s1 string, s2 string) bool {
 	len1 := len(s1)
-	if (len1 == len(s2) && len1 > 0){
+	if len1 == len(s2) && len1 > 0 {
 		s1s1 := s1 + s1
 		return strings.Contains(s1s1, s2)
 	}
 	return false
+}
+
+func MaxSum([]int arr) {
+	length := len(arr)
+	sum := 0
+
+	for i := 0; i < len(arr); i++ {
+		sum := 
+	}
 }
 
 //--- private ----------------------------------------
@@ -171,7 +180,7 @@ func countCompression(str string) int {
 	size := 0
 	count := 1
 	for i := 1; i < len(str); i++ {
-		if (str[i] == last) {
+		if str[i] == last {
 			count++
 		} else {
 			last = str[i]
