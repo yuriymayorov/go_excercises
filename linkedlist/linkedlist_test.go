@@ -57,18 +57,11 @@ func TestDeleteNode(t *testing.T) {
 	n2 := LinkedListNode {&n3, 2}
 	n1 := LinkedListNode {&n2, 1}
 
-	//in := n3;
-	printLinkedList(&n1)
-
 	res := DeleteNode(&n3)
-	fmt.Printf("\n\n\n\n")
-
-	//fmt.Printf("%t\n\n\n\n", res)
-	printLinkedList(&n1)
-
-	if n2.next != &n4 || !res {
-		t.Errorf("DeleteNode(%p) = %t, want %t and n2.next = %p want %p", &n3, res, true, &n2.next, &n4)
-		//printLinkedList(&n1)
+	
+	if n3.data != 2 || !res {
+		t.Errorf("DeleteNode(%p) = %t, want %t and n3.data = %d want %d", &n3, res, true, &n3.data, 2)
+		printLinkedList(&n1)
 	}
 }
 

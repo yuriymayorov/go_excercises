@@ -13,3 +13,5 @@ Project contains code examples of some popular algorithms written on Go Lang.
 
 ## [Linked lists](https://github.com/yuriymayorov/go_excercises/wiki/Linked-lists)
 1. Implement algorithm which deletes all duplicates from linked list
+2. Write a function that returns k elenent of linked list from the end
+3. Write a funtion that remove node from linked list 

@@ -71,6 +71,7 @@ func DeleteNode(node *LinkedListNode) bool{
 	next := node.next
 	node.data = next.data
 	node.next = next.next
+	node = next
 
 	return true
 }
