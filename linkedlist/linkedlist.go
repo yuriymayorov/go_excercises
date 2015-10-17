@@ -34,17 +34,45 @@ func DeleteDuplicates(node *LinkedListNode) {
 	}
 }
 
-
-func NthToLast(head *LinkedListNode, k int) (int, *LinkedListNode) {
-	if (head == nil) {
-		return 0, head
+// Func returns k element from the end
+// Estimate time: O(n) Estimate required memory: O(1)
+func NthToLast(head *LinkedListNode, k int) *LinkedListNode {
+	if k <= 0 { 
+		return nil 
 	}
 
-	i, res := NthToLast(head.next, k) + 1, head
+	p1, p2 := head, head
 
-	if (i == k) {
-		return k, head
+	for i:=0; i < k - 1; i++ {
+		if p2 == nil {
+			return nil
+		}
+		p2 = p2.next
+	}
+	if p2 == nil {
+		return nil
 	}
 
-	return i, head
+	for p2.next != nil {
+		p1 = p1.next
+		p2 = p2.next
+	}
+
+	return p1
 }
+
+// Func deletes node
+// Estimate time: O(1) Estimate required memory: O(1)
+func DeleteNode(node *LinkedListNode) bool{
+	if node == nil || node.next == nil {
+		return false
+	}
+
+	next := node.next
+	node.data = next.data
+	node.next = next.next
+	node = next
+
+	return true
+}
+
