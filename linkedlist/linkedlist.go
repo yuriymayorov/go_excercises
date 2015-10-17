@@ -33,3 +33,18 @@ func DeleteDuplicates(node *LinkedListNode) {
 		node = node.next
 	}
 }
+
+
+func NthToLast(head *LinkedListNode, k int) (int, *LinkedListNode) {
+	if (head == nil) {
+		return 0, head
+	}
+
+	i, res := NthToLast(head.next, k) + 1, head
+
+	if (i == k) {
+		return k, head
+	}
+
+	return i, head
+}
