@@ -76,6 +76,39 @@ func DeleteNode(node *LinkedListNode) bool {
 	return true
 }
 
-func BreakList(head *LinkedListNode, k int) {
-	return
+func Partition(node *LinkedListNode, x int) *LinkedListNode {
+	var beforeStart *LinkedListNode
+	var beforeEnd *LinkedListNode
+	var afterStart *LinkedListNode
+	var afterEnd *LinkedListNode
+
+	for node.next != nil {
+		next := node.next
+		node.next = nil
+
+		if node.data < x {
+			if beforeStart == nil {
+				beforeStart := node
+				beforeEnd = beforeStart
+			} else {
+				beforeEnd.next = node
+				beforeEnd = node
+			}
+		} else {
+			if afterStart == nil {
+				afterStart = node
+			} else {
+				afterEnd.next = node
+				afterEnd = node
+			}
+		}
+		node = next
+	}
+
+	if beforeStart == nil {
+		return afterStart
+	}
+
+	beforeEnd.next = afterStart
+	return beforeStart
 }
