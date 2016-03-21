@@ -78,17 +78,17 @@ func DeleteNode(node *LinkedListNode) bool {
 
 func Partition(node *LinkedListNode, x int) *LinkedListNode {
 	var beforeStart *LinkedListNode
-	var beforeEnd *LinkedListNode
 	var afterStart *LinkedListNode
+	var beforeEnd *LinkedListNode
 	var afterEnd *LinkedListNode
 
-	for node.next != nil {
+	for node != nil {
 		next := node.next
 		node.next = nil
 
 		if node.data < x {
 			if beforeStart == nil {
-				beforeStart := node
+				beforeStart = node
 				beforeEnd = beforeStart
 			} else {
 				beforeEnd.next = node
@@ -97,6 +97,7 @@ func Partition(node *LinkedListNode, x int) *LinkedListNode {
 		} else {
 			if afterStart == nil {
 				afterStart = node
+				afterEnd = afterStart
 			} else {
 				afterEnd.next = node
 				afterEnd = node

@@ -68,22 +68,21 @@ func TestDeleteNode(t *testing.T) {
 func TestPartition(t *testing.T) {
 	n5 := LinkedListNode{nil, 4}
 	n4 := LinkedListNode{&n5, 2}
-	n3 := LinkedListNode{&n4, 3}
+	n3 := LinkedListNode{&n4, 1}
 	n2 := LinkedListNode{&n3, 2}
 	n1 := LinkedListNode{&n2, 5}
 
-	node := Partition(&n1, 3)
-	//i := 0
-	printLinkedList(node)
+	res := Partition(&n1, 3)
 
-	/*for node.next != nil {
-		if (i == 3 || i == 4) && node.data < 3 {
+	i := 0
+	for res.next != nil {
+		if (i == 3 || i == 4) && res.data < 3 {
 			t.Errorf("Partition(%v, 3)", n1)
-			printLinkedList(&n1)
+			printLinkedList(res)
 		}
-		node = node.next
 		i++
-	}*/
+		res = res.next
+	}
 }
 
 func printLinkedList(node *LinkedListNode) {
