@@ -76,6 +76,8 @@ func DeleteNode(node *LinkedListNode) bool {
 	return true
 }
 
+// Func parts LinkedList by 2 around x value
+// Estimate time: O(n) Estimate required memory: O(n)
 func Partition(pNode *LinkedListNode, x int) *LinkedListNode {
 	var beforeStart *LinkedListNode
 	var afterStart *LinkedListNode
