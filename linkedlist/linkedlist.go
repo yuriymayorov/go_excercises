@@ -114,3 +114,7 @@ func Partition(pNode *LinkedListNode, x int) *LinkedListNode {
 	beforeEnd.next = afterStart
 	return beforeStart
 }
+
+func AddLists(n1 *LinkedListNode, n2 *LinkedListNode) *LinkedListNode {
+	return nil //TODO
+}

@@ -85,6 +85,33 @@ func TestPartition(t *testing.T) {
 	}
 }
 
+func TestAddLists(t *testing.T) {
+	n23 := LinkedListNode{nil, 5}
+	n22 := LinkedListNode{&n23, 9}
+	n21 := LinkedListNode{&n22, 2}
+	n13 := LinkedListNode{nil, 7}
+	n12 := LinkedListNode{&n13, 1}
+	n11 := LinkedListNode{&n12, 6}
+
+	res := AddLists(&n11, &n21)
+
+	if res == nil {
+		t.Errorf("AddList(%v %v)", n11, n21)
+		return
+	}
+
+	i := 0
+	for res.next != nil {
+		if (i == 0 && res.data != 1) || (i == 1 && res.data != 3) ||
+			(i == 2 && res.data != 0) || (i == 3 && res.data != 8) {
+			t.Errorf("AddList(%v %v)", n11, n21)
+			return
+		}
+		i++
+		res = res.next
+	}
+}
+
 func printLinkedList(node *LinkedListNode) {
 	i := 1
 	for node.next != nil {
