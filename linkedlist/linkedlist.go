@@ -115,6 +115,41 @@ func Partition(pNode *LinkedListNode, x int) *LinkedListNode {
 	return beforeStart
 }
 
-func AddLists(n1 *LinkedListNode, n2 *LinkedListNode) *LinkedListNode {
-	return nil //TODO
+// Func sums 2 LinkedList
+// Estimate time: O(n) Estimate required memory: O(n)
+func AddLists(n1 *LinkedListNode, n2 *LinkedListNode, carry int) *LinkedListNode {
+	if n1 == nil && n2 == nil && carry == 0 {
+		return nil
+	}
+
+	result := LinkedListNode{nil, carry}
+
+	value := carry
+
+	var n1Next, n2Next *LinkedListNode
+
+	if n1 != nil {
+		value += n1.data
+		n1Next = n1.next
+	}
+
+	if n2 != nil {
+		value += n2.data
+		n2Next = n2.next
+	}
+
+	carryNext := 0
+
+	if value >= 10 {
+		carryNext = 1
+	}
+
+	result.data = value % 10
+
+	if n1 != nil || n2 != nil || value >= 10 {
+		more := AddLists(n1Next, n2Next, carryNext)
+		result.next = more
+	}
+
+	return &result
 }
